@@ -23,7 +23,7 @@ header {
   text-align: center;
   background: darkslategray;
   padding: 32px;
-  color: white;
+  color: ivory;
   /* border-bottom: 10px solid #eeba30; */
 }
 
@@ -35,9 +35,7 @@ header nav {
 
 header nav ul a {
   text-decoration: none;
-  color: white;
-
-
+  color: ivory;
 }
 
 header nav ul li {
@@ -54,56 +52,31 @@ header nav li a:hover {
   background: coral;
 }
 
-
-.nav_bar {
-  background-color: darkslategray;
-  text-align: center;
-
-}
-
-
-.genres {
-  overflow: hidden;
-  margin: 20px;
-  display: inline
-}
-
-.genre_row_1 {
-  display: inline;
-}
-
-body,
-html {
-  height: 100%;
-}
-
-/* The hero image */
-.hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("vinyls.jpg"); */
-
-  /* Set a specific height */
-  height: 50%;
-
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-img {
-  border: 5px solid #555;
-}
-
 main h2 {
   text-align: center;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: coral;
   font-size: 4em;
+}
+
+#sales-h2 {
+  text-align: center;
+  /* position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  color: coral;
+  font-size: 2.5em;
+
+}
+article * {
+  text-align: center;
+  /* position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  color: rgb(201, 191, 188);
+  font-size: 1em;
+
 }
 
 footer {
@@ -111,8 +84,8 @@ footer {
   padding: 20px;
   bottom: 0;
   width: 100%;
-  height: 40px;
+  height: 20px;
   /* Height of the footer */
   background: darkslategray;
-  color: white;
+  color: ivory;
 }
