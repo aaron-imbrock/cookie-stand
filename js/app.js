@@ -11,6 +11,7 @@
 
 // ***** WINDOW INTO THE DOM *****
 let locationSection = document.getElementById('location-profiles');
+let tableSection = document.getElementById('table');
 
 console.log(locationSection);
 
@@ -21,6 +22,21 @@ const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm',
 function getRandomIntInclusive(minInt, maxInt) {
   return Math.floor(Math.random() * (maxInt - minInt + 1) + minInt);
 }
+
+// ************* HELPER FUNCTION - GENERATE TABLE SKELETON *************
+function renderTableSkeleton(locationHours) {
+  // thead
+  let theadElem = document.createElement('thead');
+  tableSection.appendChild(theadElem);
+  // thead tr
+  let trElem = document.createElement('tr');
+  trElem.textContent = 'Location';
+  theadElem.appendChild(trElem);
+  
+}
+
+
+
 
 let locations = [];
 
@@ -84,6 +100,13 @@ Store.prototype.render = function() {
   articleElem.appendChild(liElem);
 }
 
+// RENDER TABLE
+
+// Store.prototype.renderTableRow = function() {
+//   let theadElem = document.createElement('thead');
+//   tableSection.appendChild(theadElem);
+
+// }
 // RENDER ALL Locations
 
 function renderAllLocations() {
@@ -96,6 +119,7 @@ function renderAllLocations() {
 }
 
 renderAllLocations();
+renderTableSkeleton(hours);
 
 console.dir(locations);
 // ************* OBJECT LITERALS *************
