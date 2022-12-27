@@ -110,10 +110,28 @@ Store.prototype.render = function() {
 // RENDER TABLE
 
 function renderTableBody() {
-  let tableBody = document.getElementById('table');
+  // tbody
   let tbodyElem = document.createElement('tbody');
   tbodyElem.setAttribute('id', 'tableBody');
-  tableBody.appendChild(theadElem);
+  tableSection.appendChild(tbodyElem);
+  // tr 
+  for (let i = 0; i < locations.length; i++) {
+    let trElem = document.createElement('tr');
+    tbodyElem.appendChild(trElem);
+    // th and td for loop per location
+    let thElem = document.createElement('th');
+    thElem.textContent = locations[i].storeName;
+    trElem.appendChild(thElem);
+    for (let j = 0; j < locations[i].cookiesArray.length; j++) {
+      let tdElem = document.createElement('td');
+      tdElem.textContent = locations[i].cookiesArray[j];
+      trElem.appendChild(tdElem);
+      }
+      let tdElem = document.createElement('td');
+      tdElem.textContent = locations[i].dailyTotal;
+      tdElem.setAttribute('id', 'dailyTotal');
+      trElem.appendChild(tdElem);
+  }
 }
 
 // RENDER ALL Locations
@@ -128,9 +146,9 @@ function renderAllLocations() {
   }
 }
 
+renderAllLocations();
 renderTableHeader(hours);
 renderTableBody();
-renderAllLocations();
 
 console.dir(locations);
 // ************* OBJECT LITERALS *************
