@@ -24,19 +24,33 @@ function getRandomIntInclusive(minInt, maxInt) {
 }
 
 // ************* HELPER FUNCTION - GENERATE TABLE SKELETON *************
-function renderTableSkeleton(locationHours) {
+function renderTableOutline(locationHours) {
   // thead
   let theadElem = document.createElement('thead');
   tableSection.appendChild(theadElem);
   // thead tr
   let trElem = document.createElement('tr');
-  trElem.textContent = 'Location';
   theadElem.appendChild(trElem);
-  
+  // thead tr th 
+  let thElem = document.createElement('th');
+  thElem.textContent = 'Location';
+  trElem.appendChild(thElem);
+  for (let i = 0; i < hours.length; i++) {
+    thElem = document.createElement('th');
+    thElem.textContent = locationHours[i];
+    trElem.appendChild(thElem);
+  }
+  thElem = document.createElement('th');
+  thElem.textContent = 'Location Totals';
+  trElem.appendChild(thElem);
+
+  // tbody
+  let tbodyElem = document.createElement('tbody');
+  tableSection.appendChild(tbodyElem);  
+  // tfooter
+  let tfooterElem = document.createElement('tfooter');
+  tableSection.appendChild(tfooterElem); 
 }
-
-
-
 
 let locations = [];
 
@@ -119,7 +133,7 @@ function renderAllLocations() {
 }
 
 renderAllLocations();
-renderTableSkeleton(hours);
+renderTableOutline(hours);
 
 console.dir(locations);
 // ************* OBJECT LITERALS *************
