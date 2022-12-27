@@ -24,16 +24,16 @@ function getRandomIntInclusive(minInt, maxInt) {
 }
 
 // ************* HELPER FUNCTION - GENERATE TABLE SKELETON *************
-function renderTableOutline(locationHours) {
+function renderTableHeader(locationHours) {
   // thead
   let theadElem = document.createElement('thead');
+  theadElem.setAttribute('id', 'tableHead');
   tableSection.appendChild(theadElem);
-  // thead tr
+  // tr
   let trElem = document.createElement('tr');
   theadElem.appendChild(trElem);
-  // thead tr th 
+  // th 
   let thElem = document.createElement('th');
-  thElem.textContent = 'Location';
   trElem.appendChild(thElem);
   for (let i = 0; i < hours.length; i++) {
     thElem = document.createElement('th');
@@ -41,15 +41,8 @@ function renderTableOutline(locationHours) {
     trElem.appendChild(thElem);
   }
   thElem = document.createElement('th');
-  thElem.textContent = 'Location Totals';
+  thElem.textContent = 'Daily Location Total';
   trElem.appendChild(thElem);
-
-  // tbody
-  let tbodyElem = document.createElement('tbody');
-  tableSection.appendChild(tbodyElem);  
-  // tfooter
-  let tfooterElem = document.createElement('tfooter');
-  tableSection.appendChild(tfooterElem); 
 }
 
 let locations = [];
@@ -116,11 +109,13 @@ Store.prototype.render = function() {
 
 // RENDER TABLE
 
-// Store.prototype.renderTableRow = function() {
-//   let theadElem = document.createElement('thead');
-//   tableSection.appendChild(theadElem);
+function renderTableBody() {
+  let tableBody = document.getElementById('table');
+  let tbodyElem = document.createElement('tbody');
+  tbodyElem.setAttribute('id', 'tableBody');
+  tableBody.appendChild(theadElem);
+}
 
-// }
 // RENDER ALL Locations
 
 function renderAllLocations() {
@@ -128,12 +123,14 @@ function renderAllLocations() {
       locations[i].setCustomersPerHour();
       locations[i].setCookiesPerHour();
       locations[i].setCookiesTotal();
+      // locations[i].renderTableBody();
       locations[i].render();
   }
 }
 
+renderTableHeader(hours);
+renderTableBody();
 renderAllLocations();
-renderTableOutline(hours);
 
 console.dir(locations);
 // ************* OBJECT LITERALS *************
