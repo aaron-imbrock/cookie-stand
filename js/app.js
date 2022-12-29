@@ -176,13 +176,11 @@ function renderAllLocations() {
       locations[i].setCustomersPerHour();
       locations[i].setCookiesPerHour();
       locations[i].setCookiesTotal();
-      locations[i].render();
+      // locations[i].render();
   }
+  renderTableHeader(hours);
+  renderTableBody();
+  renderTableFooter();
 }
 
 renderAllLocations();
-renderTableHeader(hours);
-renderTableBody();
-renderTableFooter();
-
-console.dir(locations);
