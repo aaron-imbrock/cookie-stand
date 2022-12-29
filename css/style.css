@@ -53,6 +53,7 @@ header nav li a:hover {
 }
 
 main h2 {
+  margin-top: 1em;
   text-align: center;
   color: coral;
   font-size: 4em;
@@ -86,11 +87,13 @@ article h2 {
 table {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1em;
+  background-color: darkslategray;
 }
 
 table * {
   font-family: 'Archivo', sans-serif;
-  background-color: #797d80;
+  color: ivory;
   border: 1px double #020005;
   padding: 8px;
 }
