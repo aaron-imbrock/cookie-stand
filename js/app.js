@@ -16,9 +16,10 @@ let tableSection = document.getElementById('table');
 console.log(locationSection);
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let grandHourlyTotals = new Array(14).fill(0);
 
 // ************* HELPER FUNCTION - GENERATE A RANDOM NUMBER *************
-// taken from MDN docs
+// taken from MDN docs943 COOKIES
 function getRandomIntInclusive(minInt, maxInt) {
   return Math.floor(Math.random() * (maxInt - minInt + 1) + minInt);
 }
@@ -110,6 +111,7 @@ Store.prototype.render = function() {
 // RENDER TABLE
 
 function renderTableBody() {
+  let hourlyVal = 0;
   // tbody
   let tbodyElem = document.createElement('tbody');
   tbodyElem.setAttribute('id', 'tableBody');
@@ -124,7 +126,12 @@ function renderTableBody() {
     trElem.appendChild(thElem);
     for (let j = 0; j < locations[i].cookiesArray.length; j++) {
       let tdElem = document.createElement('td');
+      console.log(`location is ${locations[i].storeName}. Data point is ${locations[i].cookiesArray[j]}`);
+      hourlyVal = locations[i].cookiesArray[j];
       tdElem.textContent = locations[i].cookiesArray[j];
+      grandHourlyTotals[j] += hourlyVal;
+      console.log('Grand Hours Totals:');
+      console.dir(grandHourlyTotals);
       trElem.appendChild(tdElem);
       }
       let tdElem = document.createElement('td');
@@ -132,6 +139,22 @@ function renderTableBody() {
       tdElem.setAttribute('id', 'dailyTotal');
       trElem.appendChild(tdElem);
   }
+}
+
+function renderTableFooter() {
+  // tfooter
+  let tfooterElem = document.createElement('tfooter');
+  tfooterElem.setAttribute('id', 'table-footer');
+  tableSection.appendChild(tfooterElem);
+  let trElem = document.createElement('tr');
+  tfooterElem.appendChild(trElem);
+  let thElem = document.createElement('th');
+  thElem.textContent = 'Hourly Totals';
+  trElem.appendChild(thElem);
+  // hourlyTotals = new Array(hours.length);
+  // for (let i = 0; i < locations.length; i++) {
+  //   for (let j = 0; j < locations[i].c)
+  // }
 }
 
 // RENDER ALL Locations
@@ -149,5 +172,6 @@ function renderAllLocations() {
 renderAllLocations();
 renderTableHeader(hours);
 renderTableBody();
+renderTableFooter();
 
 console.dir(locations);
