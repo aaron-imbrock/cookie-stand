@@ -83,6 +83,11 @@ article h2 {
   font-size: 1em;
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 table * {
   font-family: 'Archivo', sans-serif;
   background-color: #797d80;
